@@ -1,0 +1,9 @@
+function omit(obj, keys) {
+  const res = {};
+  for (const k in obj) {
+    if (!keys.includes(k)) res[k] = obj[k];
+  }
+  return res;
+}
+
+console.log(omit({ a: 1, b: 2, c: 3 }, ["b"]));
