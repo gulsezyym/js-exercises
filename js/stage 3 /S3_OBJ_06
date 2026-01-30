@@ -1,0 +1,17 @@
+function groupBy(items, key) {
+  const res = {};
+  for (const item of items) {
+    const val = item[key];
+    if (!res[val]) res[val] = [];
+    res[val].push(item);
+  }
+  return res;
+}
+
+const people = [
+  { name: "Ann", role: "dev" },
+  { name: "Bob", role: "qa" },
+  { name: "Eve", role: "dev" },
+];
+
+console.log(groupBy(people, "role"));
