@@ -1,0 +1,11 @@
+def merge_defaults(defaults, overrides):
+    return defaults | overrides
+
+
+defaults = {"host": "localhost", "port": 80, "opts": {"debug": False}}
+overrides = {"port": 3000}
+
+merged = merge_defaults(defaults, overrides)
+print(merged)
+
+# Shallow merge: nested dict "opts" is not deeply merged.
