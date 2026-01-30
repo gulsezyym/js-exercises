@@ -1,0 +1,14 @@
+function get(obj, path, fallback) {
+  const keys = path.split(".");
+  let cur = obj;
+
+  for (const k of keys) {
+    if (cur == null || !(k in cur)) return fallback;
+    cur = cur[k];
+  }
+  return cur;
+}
+
+const data = { a: { b: { c: 42 } } };
+console.log(get(data, "a.b.c", null)); // 42
+console.log(get(data, "a.x.c", "nope")); // "nope"
