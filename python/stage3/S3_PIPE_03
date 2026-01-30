@@ -1,0 +1,7 @@
+normalize = pipe(
+    lambda s: s.strip(),
+    lambda s: s.lower(),
+    lambda s: " ".join(s.split())
+)
+
+print(normalize(" Ala   Ma   Kota "))
