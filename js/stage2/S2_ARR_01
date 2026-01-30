@@ -1,0 +1,7 @@
+function cleanNumbers(arr) {
+  return arr
+    .map(s => +s)
+    .filter(n => !Number.isNaN(n));
+}
+
+console.log(cleanNumbers([" 1 ", "x", "2"])); // [1, 2]
