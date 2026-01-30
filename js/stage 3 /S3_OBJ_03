@@ -1,0 +1,9 @@
+function pick(obj, keys) {
+  const res = {};
+  for (const k of keys) {
+    if (k in obj) res[k] = obj[k];
+  }
+  return res;
+}
+
+console.log(pick({ a: 1, b: 2, c: 3 }, ["a", "c"]));
