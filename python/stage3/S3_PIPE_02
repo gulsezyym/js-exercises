@@ -1,0 +1,13 @@
+def compose(*fns):
+    def run(x):
+        for fn in reversed(fns):
+            x = fn(x)
+        return x
+    return run
+
+
+add1 = lambda x: x + 1
+double = lambda x: x * 2
+
+fn = compose(add1, double)
+print(fn(3))  # add1(double(3)) = 7
