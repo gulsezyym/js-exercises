@@ -1,0 +1,14 @@
+function activeUserNames(users) {
+  return users
+    .filter(u => u.active)
+    .map(u => u.name.toUpperCase())
+    .sort();
+}
+
+const users = [
+  { id: 1, name: "ann", active: true },
+  { id: 2, name: "bob", active: false },
+  { id: 3, name: "zoe", active: true }
+];
+
+console.log(activeUserNames(users));
