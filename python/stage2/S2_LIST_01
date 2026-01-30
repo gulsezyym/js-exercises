@@ -1,0 +1,12 @@
+def clean_numbers(values):
+    res = []
+    for s in values:
+        try:
+            res.append(float(s.strip()))
+        except Exception:
+            pass
+    return res
+
+
+print(clean_numbers([" 1 ", "x", "2"]))        # [1.0, 2.0]
+print(clean_numbers(["3.5", " ", "4", "a"]))   # [3.5, 4.0]
