@@ -1,0 +1,10 @@
+a = [1, 2]
+b = [1, 2]
+
+print(a == b)   # equality
+print(a is b)   # identity
+
+x = None
+print(x is None)
+
+# Use is for identity, == for equality.
