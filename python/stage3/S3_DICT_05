@@ -1,0 +1,14 @@
+def invert(d):
+    res = {}
+    for k, v in d.items():
+        if v in res:
+            if isinstance(res[v], list):
+                res[v].append(k)
+            else:
+                res[v] = [res[v], k]
+        else:
+            res[v] = k
+    return res
+
+
+print(invert({"a": 1, "b": 2, "c": 1}))
