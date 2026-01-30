@@ -1,0 +1,10 @@
+const user = { name: "Ala", tags: [] };
+user.tags.push("admin", "editor");
+
+console.log(user);
+
+try {
+  user = {};
+} catch (e) {
+  console.log("Reassign const error:", e.message);
+}
