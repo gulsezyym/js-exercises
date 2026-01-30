@@ -1,0 +1,23 @@
+def parse_line(line):
+    try:
+        level, rest = line.split(": ", 1)
+        parts = dict(p.split("=") for p in rest.split())
+        return {"level": level, "user": int(parts.get("user"))}
+    except Exception:
+        return None
+
+
+logs = [
+    "INFO: user=42 action=login",
+    "ERROR: user=10 action=fail",
+    "INFO: user=7 action=logout",
+    "INFO: user=x action=bad",
+]
+
+users = []
+for line in logs:
+    item = parse_line(line)
+    if item and item["level"] == "INFO":
+        users.append(item["user"])
+
+print(users)
