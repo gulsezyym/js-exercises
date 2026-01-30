@@ -1,0 +1,16 @@
+{
+  let x = 10;
+}
+
+try {
+  console.log(x);
+} catch (e) {
+  console.log("let is block-scoped:", e.message);
+}
+
+{
+  var y = 20;
+}
+console.log("var outside block:", y);
+
+// var is function-scoped, not block-scoped
