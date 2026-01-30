@@ -1,0 +1,19 @@
+def pipe_safe(*fns):
+    def run(x):
+        try:
+            for fn in fns:
+                x = fn(x)
+            return {"ok": True, "value": x}
+        except Exception as e:
+            return {"ok": False, "error": str(e)}
+    return run
+
+
+safe_fn = pipe_safe(
+    lambda x: int(x),
+    lambda x: 10 / x
+)
+
+print(safe_fn("2"))
+print(safe_fn("0"))
+print(safe_fn("bad"))
