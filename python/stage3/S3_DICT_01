@@ -1,0 +1,14 @@
+def get_path(obj, path, fallback):
+    keys = path.split(".")
+    cur = obj
+
+    for k in keys:
+        if not isinstance(cur, dict) or k not in cur:
+            return fallback
+        cur = cur[k]
+    return cur
+
+
+data = {"a": {"b": {"c": 42}}}
+print(get_path(data, "a.b.c", None))
+print(get_path(data, "a.x.c", "missing"))
