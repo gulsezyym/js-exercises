@@ -1,0 +1,9 @@
+function countOccurrences(values) {
+  const res = {};
+  for (const v of values) {
+    res[v] = (res[v] || 0) + 1;
+  }
+  return res;
+}
+
+console.log(countOccurrences(["a", "b", "a", "c", "b", "a"]));
