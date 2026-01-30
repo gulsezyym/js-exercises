@@ -1,0 +1,17 @@
+def to_numbers(values):
+    for v in values:
+        try:
+            yield float(v.strip())
+        except Exception:
+            continue
+
+
+def double(nums):
+    for n in nums:
+        yield n * 2
+
+
+values = [" 1 ", "x", "2", "3.5", "bad"]
+
+result = sum(double(to_numbers(values)))
+print(result)
