@@ -1,0 +1,17 @@
+def day_name(n: int):
+    match n:
+        case 1: return "Monday"
+        case 2: return "Tuesday"
+        case 3: return "Wednesday"
+        case 4: return "Thursday"
+        case 5: return "Friday"
+        case 6: return "Saturday"
+        case 7: return "Sunday"
+        case _: return None
+
+
+tests = [1, 5, 7, 0, 9]
+for t in tests:
+    print(t, "->", day_name(t))
+
+# If Python < 3.10, replace match/case with if/elif/else.
