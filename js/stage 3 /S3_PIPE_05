@@ -1,0 +1,19 @@
+const parseLine = line => {
+  const [level, rest] = line.split(": ");
+  const [, id] = rest.split("=");
+  return { level, userId: id };
+};
+
+const extractInfoUsers = pipe(
+  lines => lines.map(parseLine),
+  items => items.filter(i => i.level === "INFO"),
+  items => items.map(i => i.userId)
+);
+
+const logs = [
+  "INFO: user=42",
+  "ERROR: user=10",
+  "INFO: user=7"
+];
+
+console.log(extractInfoUsers(logs)); // ["42", "7"]
