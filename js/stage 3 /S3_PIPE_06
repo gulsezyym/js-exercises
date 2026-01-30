@@ -1,0 +1,21 @@
+function pipeSafe(...fns) {
+  return x => {
+    try {
+      const value = fns.reduce((v, fn) => fn(v), x);
+      return { ok: true, value };
+    } catch (error) {
+      return { ok: false, error };
+    }
+  };
+}
+
+const risky = pipeSafe(
+  x => x + 1,
+  x => {
+    if (x > 5) throw new Error("Too big");
+    return x;
+  }
+);
+
+console.log(risky(3)); // ok
+console.log(risky(10)); // error
