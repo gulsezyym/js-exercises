@@ -1,0 +1,12 @@
+def normalize_name(x):
+    if not x:
+        return "Anonymous"
+
+    name = x.strip()
+    return name if name else "Anonymous"
+
+
+tests = ["", " ", None, " Ola "]
+
+for t in tests:
+    print(repr(t), "->", normalize_name(t))
