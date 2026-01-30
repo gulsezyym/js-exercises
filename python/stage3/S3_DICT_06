@@ -1,0 +1,15 @@
+def group_by(items, key):
+    res = {}
+    for item in items:
+        val = item.get(key)
+        res.setdefault(val, []).append(item)
+    return res
+
+
+people = [
+    {"name": "Ann", "role": "dev"},
+    {"name": "Bob", "role": "qa"},
+    {"name": "Eve", "role": "dev"},
+]
+
+print(group_by(people, "role"))
